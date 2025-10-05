@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1uqtum4t7uku"]
+
+[ext_resource type="PackedScene" uid="uid://enka6wakk8k7" path="res://scenes/bird.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://c0poed6dkcnoi" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dlj7j2vkfwcu4" path="res://scenes/pipe.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sugp2")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(564, 306)
+
+[node name="Pipe" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(749, 312)
+
+[node name="Score_Label" type="Label" parent="."]
+offset_right = 69.0
+offset_bottom = 23.0
+text = "SCORE: 0"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="hit" from="Pipe" to="." method="_on_hit"]
+[connection signal="scored" from="Pipe" to="." method="_on_scored"]
+[connection signal="timeout" from="Timer" to="." method="_on_pipe_timer_timeout"]

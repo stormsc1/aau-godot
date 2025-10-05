@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://ce4uq4uvacu8d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6r00q"]
+
+[sub_resource type="Sky" id="Sky_yh2ob"]
+sky_material = SubResource("ProceduralSkyMaterial_6r00q")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_yh2ob")
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.5
+ssao_detail = 3.52
+fog_enabled = true
+fog_light_energy = 1.2
+fog_density = 0.001
+volumetric_fog_density = 0.0681
+adjustment_enabled = true
+adjustment_contrast = 1.1

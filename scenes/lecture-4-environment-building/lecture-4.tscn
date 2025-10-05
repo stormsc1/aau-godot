@@ -1,0 +1,241 @@
+[gd_scene load_steps=27 format=3 uid="uid://nysvn4h6obbi"]
+
+[ext_resource type="Environment" uid="uid://ce4uq4uvacu8d" path="res://prototype_environment.tres" id="1_xv1dn"]
+[ext_resource type="PackedScene" uid="uid://hcs1k41pp446" path="res://addons/proto-csgs/proto_csg_polygon_3d.tscn" id="2_mpn3b"]
+[ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-csgs/textures/dark/texture_01.png" id="3_uijga"]
+[ext_resource type="PackedScene" uid="uid://yjolybe6ur3n" path="res://addons/proto-csgs/proto_csg_torus_3d.tscn" id="4_83u38"]
+[ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="5_njiql"]
+[ext_resource type="PackedScene" uid="uid://qgv0bohj4yn5" path="res://addons/proto-csgs/proto_csg_sphere_3d.tscn" id="6_fti6u"]
+[ext_resource type="PackedScene" uid="uid://dilcl7aco8lba" path="res://addons/proto-csgs/proto_csg_cylinder_3d.tscn" id="7_qgi4h"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto-controller/proto_controller.tscn" id="8_mvyhn"]
+[ext_resource type="PackedScene" uid="uid://c1verxcrelipp" path="res://scenes/shared/door.tscn" id="9_1wip4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un5sx"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcxgv"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnf1l"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2jlf"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q22kk"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rssfg"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se3op"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yo2nm"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj3up"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eimd"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg8xm"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scbho"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lb15"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06r5y"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu68v"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmm6m"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3nk0"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_uijga")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[node name="Node" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8498796, -0.19534059, 0.48943537, 0.52195114, -0.43999702, 0.7307323, 0.072608456, 0.8764957, 0.47590265, 0, 3.514826, 0)
+light_angular_distance = 1.0
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_xv1dn")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="ProtoCSGPolygon3D" parent="World" instance=ExtResource("2_mpn3b")]
+transform = Transform3D(0.9659258, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.9659258, -8.5, 0, -7)
+polygon = PackedVector2Array(0, 0, 0, 1, 2, 2.5, 3, 0)
+material = SubResource("StandardMaterial3D_un5sx")
+
+[node name="ProtoCSGTorus3D" parent="World" instance=ExtResource("4_83u38")]
+transform = Transform3D(2.5809568e-08, 0.5, -0.8660254, -1, 2.5809568e-08, -1.4901161e-08, 1.4901161e-08, 0.8660254, 0.5, 4, 0.5000002, 6)
+inner_radius = 0.99
+outer_radius = 1.991
+material = SubResource("StandardMaterial3D_jcxgv")
+
+[node name="ProtoCSGBox3D" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.001)
+size = Vector3(24, 1, 24)
+material = SubResource("StandardMaterial3D_wnf1l")
+
+[node name="ProtoCSGBox3D8" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 11.5, -16)
+size = Vector3(10, 1, 8)
+material = SubResource("StandardMaterial3D_g2jlf")
+
+[node name="ProtoCSGBox3D2" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 8, 0)
+size = Vector3(1, 16, 24)
+material = SubResource("StandardMaterial3D_q22kk")
+
+[node name="ProtoCSGBox3D10" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 14, -15.5)
+size = Vector3(1, 4, 7)
+material = SubResource("StandardMaterial3D_rssfg")
+
+[node name="ProtoCSGBox3D11" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 14, -15.5)
+size = Vector3(1, 4, 7)
+material = SubResource("StandardMaterial3D_se3op")
+
+[node name="ProtoCSGBox3D3" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 8, 0)
+size = Vector3(1, 16, 24)
+material = SubResource("StandardMaterial3D_yo2nm")
+
+[node name="ProtoCSGBox3D4" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 11.5)
+size = Vector3(22, 16, 1)
+material = SubResource("StandardMaterial3D_yj3up")
+
+[node name="ProtoCSGBox3D13" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -11.5)
+size = Vector3(22, 12, 1)
+material = SubResource("StandardMaterial3D_0eimd")
+
+[node name="ProtoCSGBox3D9" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 14, -19.5)
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_dg8xm")
+
+[node name="ProtoCSGBox3D6" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 14, -11.5)
+size = Vector3(3, 4, 1)
+material = SubResource("StandardMaterial3D_scbho")
+
+[node name="ProtoCSGBox3D14" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 14, -11.5)
+size = Vector3(17, 4, 1)
+material = SubResource("StandardMaterial3D_0lb15")
+
+[node name="ProtoCSGBox3D7" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 15.5, -11.5)
+size = Vector3(2, 1, 1)
+material = SubResource("StandardMaterial3D_06r5y")
+
+[node name="Label3D" type="Label3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -10.95)
+text = "Lecture 5: Introduction to Level Blockout
+---
+- Design a path for the player to get to the door.
+- Blah blah... be creative."
+
+[node name="ProtoCSGSphere3D" parent="World" instance=ExtResource("6_fti6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.5, -0.5)
+radius = 1.5
+material = SubResource("StandardMaterial3D_xu68v")
+
+[node name="ProtoCSGBox3D12" parent="World" instance=ExtResource("5_njiql")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -5.957107, -0.25, 5.3964467)
+size = Vector3(4, 2.5, 3)
+material = SubResource("StandardMaterial3D_jmm6m")
+
+[node name="ProtoCSGCylinder3D" parent="World" instance=ExtResource("7_qgi4h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, 0, -1.5)
+radius = 2.5
+height = 1.0
+material = SubResource("StandardMaterial3D_f3nk0")
+
+[node name="Door" parent="World" instance=ExtResource("9_1wip4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 12, -11)
+open_by_default = true
+
+[node name="ProtoController" parent="." instance=ExtResource("8_mvyhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
