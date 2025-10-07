@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://betudauh8gv81"]
+
+[ext_resource type="PackedScene" uid="uid://csdwu43o717a7" path="res://assets/House/Models/Prop_Oven_White.glb" id="1_cb837"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_qtxpc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o5obe"]
+points = PackedVector3Array(-0.5, -0.5511708, -1.4748925, -0.5, -0.39514244, -1.4748925, 0.5, -0.5511708, -1.4748925, -0.5, -0.5511708, 1.1920929e-07, 0.5, -0.39514244, -1.4748925, -0.5, 0.4487704, -1.2580475, -0.36697337, 0.37474865, -1.2779707, 0.5, -0.5511708, 1.1920929e-07, -0.5, 0.4487704, 1.1920929e-07, 0.36687547, 0.37474865, -1.2779707, 0.5, 0.4487704, -1.2580475, -0.4685787, 0.5031538, -1.2264303, 0.5, 0.4487704, 1.1920929e-07, -0.4685787, 0.5031538, -0.031617165, 0.46848083, 0.5031538, -1.2264303, -0.42384493, 0.5511708, -1.1956793, 0.46848083, 0.5031538, -0.031617165, -0.42384493, 0.5511708, -0.33291912, 0.42482382, 0.5511708, -1.1956793, 0.42482382, 0.5511708, -0.33291912)
+
+[node name="House_Prop_Oven_White" instance=ExtResource("1_cb837")]
+
+[node name="Prop_Oven_White" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_qtxpc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_o5obe")

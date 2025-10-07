@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8102smy5fkx8"]
+
+[ext_resource type="PackedScene" uid="uid://dat1bw8jqkpya" path="res://assets/House/Models/Prop_Speaker_03.glb" id="1_guovt"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_5g2a7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bf8no"]
+points = PackedVector3Array(-0.22481918, -0.23437881, -1.7875502, -0.22481918, 0.20611027, -1.7875502, 0.22481918, -0.23437881, -1.7875502, -0.22481918, -0.23437881, 0, -0.15739104, 0.2337785, -1.6860644, 0.22481918, 0.20611027, -1.7875502, -0.22481918, 0.20611027, 0, 0.22481918, -0.23437881, 0, 0.15734702, 0.2337785, -1.6860644, -0.15739104, 0.2337785, -0.7649931, -0.14079808, 0.234375, -1.0764496, 0.22481918, 0.20611027, 0, 0.14075404, 0.234375, -1.0764496, 0.15734702, 0.2337785, -0.7649931, -0.14079808, 0.234375, -0.78231573, 0.14075404, 0.234375, -0.78231573)
+
+[node name="House_Prop_Speaker_03" instance=ExtResource("1_guovt")]
+
+[node name="Prop_Speaker_03" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_5g2a7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_bf8no")

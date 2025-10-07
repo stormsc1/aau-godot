@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://w3y4t2lv80wb"]
+
+[ext_resource type="PackedScene" uid="uid://6newojjuim6d" path="res://assets/House/Models/Prop_Washing_Machine.glb" id="1_c0qvf"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_2rpk2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p7s84"]
+points = PackedVector3Array(-0.58251, -0.69657135, -1.816546, -0.58251, -0.5126095, -1.816546, 0.58251, -0.69657135, -1.816546, -0.58251, -0.57956666, 1.1920929e-07, -0.36891538, -0.41646925, -1.8055215, 0.58251, -0.5126095, -1.816546, -0.58251, 0.69657516, -1.504127, 0.58251, -0.57956666, 1.1920929e-07, -0.58251, 0.69657516, 1.1920929e-07, -0.30619407, -0.41646925, -1.8055215, 0.58251, 0.69657516, -1.504127, 0.58251, 0.69657516, 1.1920929e-07)
+
+[node name="House_Prop_Washing_Machine" instance=ExtResource("1_c0qvf")]
+
+[node name="Prop_Washing_Machine" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_2rpk2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_p7s84")

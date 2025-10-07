@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpllwpkb74kcp"]
+
+[ext_resource type="PackedScene" uid="uid://35th677rdmvr" path="res://assets/House/Models/Prop_Shower.glb" id="1_1ym6v"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_hn0vf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c61io"]
+points = PackedVector3Array(0.074422464, -1.9073486e-06, -3.109051, -4.7683716e-07, 1.9449825, -4.4144635, 0.21200435, -1.9073486e-06, -3.109051, -4.7683716e-07, -1.9073486e-06, -0.20611763, -4.7683716e-07, 2.239624, -4.4144635, 2.0546763, 1.9449825, -4.4144635, 1.2169152, -1.9073486e-06, -2.8765745, -4.7683716e-07, -1.9073486e-06, 0, 2.0546763, 2.239624, -4.4144635, -4.7683716e-07, 2.239624, 0, 2.0546763, -1.9073486e-06, -0.18062305, 2.0546763, -1.9073486e-06, 0, 2.0546763, 2.239624, 0)
+
+[node name="House_Prop_Shower" instance=ExtResource("1_1ym6v")]
+
+[node name="Prop_Shower" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_hn0vf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_c61io")

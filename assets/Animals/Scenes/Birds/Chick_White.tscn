@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bou6xpgbccv50"]
+
+[ext_resource type="ArrayMesh" uid="uid://dj1lk8t7ee3f2" path="res://assets/Animals/Models/Animal_Birds/SA_Animal_Chick.res" id="1_uuv0c"]
+[ext_resource type="Material" uid="uid://ccmp56v8t83gr" path="res://assets/Animals/Materials/Animals_MAT.tres" id="2_boy3e"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_boy3e"]
+points = PackedVector3Array(-0.010290201, 0, -0.0065254755, -0.012788896, 0.021773143, -0.0119437445, -0.009369298, 0.030181114, -0.02306106, -0.0010874579, 0.041584425, -0.036333542, 0.010287106, 0, -0.0065254755, -0.016054487, 0, 0.0060640313, -0.012788896, 0.03268015, -0.0119437445, -0.009369298, 0.030239504, -0.023068648, -0.0010874579, 0.0458468, -0.032926254, 0.0010843631, 0.041584425, -0.036333542, -0.011484546, 0.05964989, 0.003931634, 0.009366203, 0.030181114, -0.02306106, 0.012785802, 0.021773143, -0.0119437445, 0.016054535, 0, 0.0060640313, -0.008548971, 0, 0.010252945, 2.4214387e-08, 0.047107995, 0.041191716, -0.011484546, 0.036831588, 0.027554978, -0.016054487, 0.0028143348, 0.0060640313, 0.0010843631, 0.0458468, -0.032926254, 0.009366203, 0.030239504, -0.023068648, 0.011481451, 0.05964989, 0.003931634, -0.011484546, 0.05964989, 0.027554978, 0.012785802, 0.03268015, -0.0119437445, 0.016054535, 0.0028143348, 0.0060640313, 0.011481451, 0.036831588, 0.027554978, 0.008545877, 0, 0.010252945, 0.011481451, 0.05964989, 0.027554978)
+
+[node name="Chick_Yellow" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_uuv0c")
+surface_material_override/0 = ExtResource("2_boy3e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_boy3e")

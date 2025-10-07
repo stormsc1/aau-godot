@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ugcvwirll6u"]
+
+[ext_resource type="PackedScene" uid="uid://bpmsfxmd1aoqt" path="res://assets/House/Models/Prop_Couch_05.glb" id="1_y5ph2"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_e3ktd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lnr0e"]
+points = PackedVector3Array(0.6365011, 0.9581511, -0.34997582, 0.9915364, 0.817467, 0, 0.6365011, 0.9581511, -0.6999517, -0.6366954, 0.9581511, -0.34997582, 0.9915364, 0.817467, -1.2072506, -0.9915365, 0.817467, 0, 0.9915364, -0.9581549, 0, -0.6366954, 0.9581511, -0.6999517, 0.9915364, -0.9581549, -1.2072506, 0.6365011, -0.3777858, -1.5424303, -0.9915365, 0.817467, -1.2072506, -0.9915365, -0.9581549, 0, 0.6365011, -0.9581549, -1.5424303, -0.6366954, -0.3777858, -1.5424303, -0.9915365, -0.9581549, -1.2072506, -0.6366954, -0.9581549, -1.5424303)
+
+[node name="House_Prop_Couch_05" instance=ExtResource("1_y5ph2")]
+
+[node name="Prop_Couch_05" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_e3ktd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_lnr0e")

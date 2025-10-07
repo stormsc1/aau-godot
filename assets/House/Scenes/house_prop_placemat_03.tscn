@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://djmgg2vh8f4wp"]
+
+[ext_resource type="PackedScene" uid="uid://c4p2u6rd4cfnm" path="res://assets/House/Models/Prop_Placemat_03.glb" id="1_5su0m"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_s3np7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rojmk"]
+points = PackedVector3Array(0.62678766, 0.464983, 0, 0.62678766, -0.464983, 0, 0.62678766, 0.464983, -0.021977067, -0.62678766, 0.464983, 0, 0.62678766, -0.464983, -0.021977067, -0.62678766, -0.464983, 0, -0.62678766, 0.464983, -0.021977067, -0.62678766, -0.464983, -0.021977067)
+
+[node name="House_Prop_Placemat_03" instance=ExtResource("1_5su0m")]
+
+[node name="Prop_Placemat_03" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_s3np7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_rojmk")

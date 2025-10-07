@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://eh73cweb2ion"]
+
+[ext_resource type="PackedScene" uid="uid://qag2wcv28vu5" path="res://assets/House/Models/Floor_Wood.glb" id="1_gg6ht"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_0h0a5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j56gj"]
+points = PackedVector3Array(-2.5000005, -2.5, 0, 2.4995108, -2.5, 0, -2.5000005, 2.4995122, 0, 2.4995108, 2.500002, 0)
+
+[node name="House_Floor_Wood" instance=ExtResource("1_gg6ht")]
+
+[node name="Floor_Wood" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_0h0a5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_j56gj")

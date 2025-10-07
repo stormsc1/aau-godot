@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwj6d0druvde"]
+
+[ext_resource type="PackedScene" uid="uid://bnctmcgfpnyuk" path="res://assets/House/Models/Prop_Couch_07.glb" id="1_pkyha"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_pjor3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0phhf"]
+points = PackedVector3Array(-0.44329977, -0.7275701, -2.0823617, -1.3298992, -0.7275701, -1.7857841, -0.44329977, -0.43457544, -2.0823617, 0.44299388, -0.7275701, -2.0823617, -1.3298992, -0.43457544, -1.7857841, -1.5616379, -0.7275701, -1.4219415, -1.5616379, 0.5748816, -1.4219415, 0.44299388, -0.43457544, -2.0823617, 1.3295932, -0.7275701, -1.7857841, -1.5616379, -0.7275701, -0.39727128, -1.5616379, 0.5748816, -0.39727128, -1.3298992, 0.727575, -0.8711839, 1.561332, 0.5748816, -1.4219415, 1.3295932, -0.43457544, -1.7857841, 1.561332, -0.7275701, -1.4219415, -1.5387086, -0.7057771, 0, 1.5616376, -0.7275701, -0.39727128, -1.5387086, 0.55152184, 0, -1.3298992, 0.727575, -0.54301214, 1.3295932, 0.727575, -0.8711839, 1.561332, 0.5748816, -0.39727128, 1.5405428, -0.7057771, 0, 1.5405428, 0.55152184, 0, 1.3295932, 0.727575, -0.54301214)
+
+[node name="House_Prop_Couch_07" instance=ExtResource("1_pkyha")]
+
+[node name="Prop_Couch_07" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_pjor3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_0phhf")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd3u4bbnmf4ol"]
+
+[ext_resource type="PackedScene" uid="uid://d1bc1n20bwdp0" path="res://assets/House/Models/Prop_Wardrobe_02.glb" id="1_wt06f"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_skwpt"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_355vq"]
+points = PackedVector3Array(1.1558781, 0.5477991, 0, 1.1558781, -0.6407547, 0, 1.1558781, 0.5477991, -0.35395312, 0.12988925, 0.6407509, -1.8064742, -1.1558781, 0.5477991, 0, -1.1558781, -0.6407547, 0, 1.1558781, -0.6407547, -0.35395312, 1.1427534, 0.5311154, -3.4405184, 0.12988925, 0.6407509, -1.9041396, -0.13124692, 0.6407509, -1.8064742, -1.1558781, 0.5477991, -0.35395312, -1.1558781, -0.6407547, -0.35395312, 1.1427534, -0.62419647, -3.4405184, -1.1429796, 0.5311154, -3.4405184, -0.13124692, 0.6407509, -1.9041396, -1.1429796, -0.62419647, -3.4405184)
+
+[node name="House_Prop_Wardrobe_02" instance=ExtResource("1_wt06f")]
+
+[node name="Prop_Wardrobe_02" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_skwpt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_355vq")

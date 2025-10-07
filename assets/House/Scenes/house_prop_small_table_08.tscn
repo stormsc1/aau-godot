@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc4pka1q7vxcc"]
+
+[ext_resource type="PackedScene" uid="uid://dmu3438h8vcy4" path="res://assets/House/Models/Prop_Small_Table_08.glb" id="1_u5dhq"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_nkf1a"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_70q88"]
+points = PackedVector3Array(-1.0546632, -0.6089058, -1.3255332, -2.3841858e-07, -1.2178154, -1.3255332, -1.0546632, -0.6089058, -1.1808611, -1.0546632, 0.6089134, -1.3255332, -2.3841858e-07, -1.2178154, -1.1808611, 1.0546627, -0.6089058, -1.3255332, -0.041914225, -0.6432374, 0, -0.63696873, -0.045771718, 0, -1.0546632, 0.6089134, -1.1808611, -2.3841858e-07, 1.217823, -1.3255332, 1.0546627, -0.6089058, -1.1808611, 0.041707277, -0.6432374, 0, 1.0546627, 0.6089134, -1.3255332, -0.63696873, 0.04554093, 0, -0.041914225, 0.6430067, 0, -2.3841858e-07, 1.217823, -1.1808611, 1.0546627, 0.6089134, -1.1808611, 0.6367618, -0.045771718, 0, 0.041707277, 0.6430067, 0, 0.6367618, 0.04554093, 0)
+
+[node name="House_Prop_Small_Table_08" instance=ExtResource("1_u5dhq")]
+
+[node name="Prop_Small_Table_08" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_nkf1a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_70q88")
