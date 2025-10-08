@@ -5,7 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-assets/textures/dark/texture_01.png" id="3_bq1be"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto-controller/proto_controller.tscn" id="4_wfovl"]
 [ext_resource type="Material" uid="uid://28rsnybfsutc" path="res://addons/proto-assets/materials/proto_grid_dark_01.tres" id="5_io6yr"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://2ae84e2yfh4b" path="res://samples/jump_pad.gd" id="5_nj67m"]
+=======
+[ext_resource type="Script" path="res://samples/jump_pad.gd" id="5_nj67m"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://igfjkwme4ya8" path="res://samples/moveing_platform/moving_plaform.tscn" id="6_ftx4w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n086u"]
