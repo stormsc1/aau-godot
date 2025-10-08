@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var can_sprint : bool = true
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = true
+## Can we interact?
+@export var can_interact : bool = true
 
 @export_group("Speeds")
 ## Look around rotation speed.
@@ -43,15 +45,20 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to Interact.
+@export var input_interact : String = "interact"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var interact_target = null
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var interact_ray : RayCast3D = $Head/Camera3D/InteractRay
+@onready var interact_prompt : Label = $CanvasLayer/InteractPrompt
 
 func _ready() -> void:
 	check_input_mappings()
@@ -69,12 +76,20 @@ func _unhandled_input(event: InputEvent) -> void:
 	if mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
 	
+	# Interaction
+	if can_interact and Input.is_action_just_pressed(input_interact):
+		try_interact()
+	
 	# Toggle freefly mode
 	if can_freefly and Input.is_action_just_pressed(input_freefly):
 		if not freeflying:
 			enable_freefly()
 		else:
 			disable_freefly()
+
+func _process(delta) -> void:
+	if can_interact:
+		process_interact()
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -118,7 +133,6 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 
-
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
 ## Modifies look_rotation based on rot_input, then resets basis and rotates by look_rotation.
@@ -131,7 +145,6 @@ func rotate_look(rot_input : Vector2):
 	head.transform.basis = Basis()
 	head.rotate_x(look_rotation.x)
 
-
 func enable_freefly():
 	collider.disabled = true
 	freeflying = true
@@ -141,17 +154,34 @@ func disable_freefly():
 	collider.disabled = false
 	freeflying = false
 
-
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
-
 
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
 
+func process_interact():
+	interact_ray.force_raycast_update()
+	var hit = interact_ray.get_collider()
+	if hit and hit.is_in_group("interactable"):
+		interact_target = hit
+		interact_prompt.visible = true
+		if interact_target.has_method("get_interact_prompt_text"):
+			interact_prompt.text = "E to %s" % interact_target.get_interact_prompt_text()
+		else:
+			interact_prompt.text = "E to Interact"
+	else:
+		interact_target = null
+		interact_prompt.visible = false
 
+# Called when press interact
+func try_interact():
+	# Call thje "interact" interface method if the object has one.
+	if interact_target and interact_target.has_method("interact"):
+		interact_target.interact()
+		
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.
 func check_input_mappings():
@@ -176,3 +206,6 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+	if can_interact and not InputMap.has_action(input_interact):
+		push_error("Interaction disabled. No InputAction found for input_interact: " + input_interact)
+		can_interact = false

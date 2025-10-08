@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://de8y85vv6gsto"]
+
+[ext_resource type="PackedScene" uid="uid://do3era24fqquj" path="res://assets/House/Models/Prop_TowelRail.glb" id="1_c4r0j"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_bpc4x"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p6v8g"]
+points = PackedVector3Array(0.5497825, 0.17046738, 0.037646256, 0.5764141, 0.02471243, 0.05357957, 0.5497825, 0.17046738, -0.037656747, -0.54763854, 0.17046738, 0.037646256, 0.5764141, 0, 0.05357957, 0.5764141, 0.02471243, -0.05357957, -0.5764141, 0.02471243, 0.05357957, -0.54763854, 0.17046738, -0.037656747, 0.5764141, 0, -0.05357957, -0.5764141, 0, 0.05357957, -0.5764141, 0.02471243, -0.05357957, -0.5764141, 0, -0.05357957)
+
+[node name="House_Prop_TowelRail" instance=ExtResource("1_c4r0j")]
+
+[node name="Prop_TowelRail" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_bpc4x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_p6v8g")

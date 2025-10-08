@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://coy5113ua3bxi"]
+
+[ext_resource type="PackedScene" uid="uid://5mi66wahwxf7" path="res://assets/House/Models/Prop_Computer_Screen.glb" id="1_5p7l5"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_n5tre"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_purhu"]
+points = PackedVector3Array(-0.39891052, 0.029548228, -0.7911205, -0.39891052, 0.029548228, -0.08673209, -0.39891052, 0.23730868, -0.7911205, 0.39891052, 0.029548228, -0.7911205, -0.19812764, -0.29885483, -0.6582346, -0.39891052, 0.23730868, -0.08673209, -0.19812764, -0.29885483, -0.29388237, -0.23428574, -0.16036738, 0, -0.23428574, 0.29885864, -0.044062972, 0.39891052, 0.23730868, -0.7911205, 0.39891052, 0.029548228, -0.08673209, 0.19804955, -0.29885483, -0.6582346, -0.23428574, 0.29885864, 0, 0.19804955, -0.29885483, -0.29388237, 0.22491431, -0.16036738, 0, 0.22491431, 0.29885864, -0.044062972, 0.39891052, 0.23730868, -0.08673209, 0.22491431, 0.29885864, 0)
+
+[node name="House_Prop_Computer_Screen" instance=ExtResource("1_5p7l5")]
+
+[node name="Prop_Computer_Screen" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_n5tre")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_purhu")

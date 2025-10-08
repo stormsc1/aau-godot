@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx32j8j3mr4p0"]
+
+[ext_resource type="PackedScene" uid="uid://bu21immian0u5" path="res://assets/House/Models/Prop_DoubleBead_Grey3.glb" id="1_b40en"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_owdbu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6kbuc"]
+points = PackedVector3Array(-1.7787318, -1.0273156, -1.2165041, -1.7787318, -1.0273156, -0.5166278, -1.7787318, -0.62907565, -1.2165041, -1.7150067, -2.3384078, -2.0504546, -1.7487845, -2.3026376, -1.1799748, -1.7787318, -0.62907565, -0.5166278, -1.7487845, -2.3026376, -0.5166278, -1.6819253, -2.2120202, -0.2954452, -1.7487845, 2.4357033, -1.1799748, -1.7150067, -2.2754524, -2.0504546, 1.6255131, -2.3393614, -2.0504546, -1.407176, -2.4361792, -1.9695685, -1.5349746, -2.4352252, -1.9695685, -1.7150067, -2.3384078, -1.1101277, -1.6819253, 2.3450856, -0.2954452, -1.7487845, 2.4357033, -0.5166278, -1.5349746, -2.4352252, 0, 1.7484362, 2.4357033, -1.1799748, 1.6255131, -2.2754524, -2.0504546, 1.428766, -2.4361792, -1.9695685, 1.7787318, -1.0444853, -1.2165041, 1.7484362, -2.3026376, -1.1799748, -1.407176, -2.4361792, 0, -1.5328852, 2.090403, 0, 1.6815772, 2.3450856, -0.2954452, -1.5349746, -2.3188534, 0, 1.7484362, 2.4357033, -0.5166278, 1.7787318, -0.64624524, -1.2165041, 1.428766, -2.4361792, 0, 1.7787318, -1.0444853, -0.5166278, 1.7484362, -2.3026376, -0.5166278, 1.532537, 2.090403, 0, 1.7787318, -0.64624524, -0.5166278, 1.6815772, -2.2120202, -0.2954452, 1.532537, -2.0083692, 0)
+
+[node name="House_Prop_DoubleBead_Grey3" instance=ExtResource("1_b40en")]
+
+[node name="Prop_DoubleBead_Grey3" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_owdbu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_6kbuc")

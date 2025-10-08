@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhw8h04qyjamc"]
+
+[ext_resource type="PackedScene" uid="uid://ch0uyr0j0rw0x" path="res://assets/House/Models/Prop_Fireplace_02.glb" id="1_83kvx"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_bs74m"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_miipf"]
+points = PackedVector3Array(-1.2530956, -0.49703205, -1.7488624, -1.1404936, -0.53595924, -1.3552998, -1.2530956, -0.49703205, -1.6630969, -1.2530956, 0.28686327, -1.7488624, 1.2530956, -0.49703205, -1.7488624, -1.1404936, -0.53595924, -1.2976093, 1.1402483, -0.53595924, -1.3552998, -1.2530956, 0.28686327, -1.6630969, -1.0968267, -0.49703205, 0, -1.0021331, 0.5359554, -0.08918917, 1.2530956, 0.28686327, -1.7488624, 1.2530956, -0.49703205, -1.6630969, 1.1402483, -0.53595924, -1.2976093, -1.0968267, 0.14972621, 0, -1.0021331, 0.5359554, 0, 1.0965812, -0.49703205, 0, 1.0018878, 0.5359554, -0.08918917, 1.2530956, 0.28686327, -1.6630969, 1.0018878, 0.5359554, 0, 1.0965812, 0.14972621, 0)
+
+[node name="House_Prop_Fireplace_02" instance=ExtResource("1_83kvx")]
+
+[node name="Prop_Fireplace_02" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_bs74m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_miipf")

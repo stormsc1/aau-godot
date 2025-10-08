@@ -30,3 +30,16 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
+debug_shape_thickness = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractPrompt" type="Label" parent="CanvasLayer"]
+offset_left = 498.0
+offset_top = 310.0
+offset_right = 612.0
+offset_bottom = 333.0
+text = "Interact Promt"

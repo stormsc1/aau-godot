@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74mmfi3g0sq"]
+
+[ext_resource type="PackedScene" uid="uid://dxao334wmimwq" path="res://assets/House/Models/Prop_Lamp_04.glb" id="1_j5g65"]
+[ext_resource type="Material" uid="uid://bt2ptq65i5ps5" path="res://assets/House/Materials/House_MAT.tres" id="2_nt1lx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y1xsg"]
+points = PackedVector3Array(-4.7683716e-07, -0.33426285, -1.4275122, -0.28948402, -0.16713047, -1.4275122, 0.28948307, -0.16713047, -1.4275122, -4.7683716e-07, -0.33426285, -0.87389004, -0.28948402, 0.16713428, -1.4275122, -0.28948402, -0.16713047, -0.87389004, 0.28948307, 0.16713428, -1.4275122, 0.28948307, -0.16713047, -0.87389004, 0.19200623, -0.1920629, -0.040802002, -0.19206385, -0.1920629, -0.040802002, -4.7683716e-07, 0.33426666, -1.4275122, -0.28948402, 0.16713428, -0.87389004, 0.28948307, 0.16713428, -0.87389004, 0.19200623, 0.19200128, -0.040802002, 0.1542623, -0.15430433, -0.00013971329, -0.15431991, -0.15430433, -0.00013971329, -0.19206385, 0.19200128, -0.040802002, -4.7683716e-07, 0.33426666, -0.87389004, 0.1542623, 0.15424272, -0.00013971329, -0.15431991, 0.15424272, -0.00013971329)
+
+[node name="House_Prop_Lamp_04" instance=ExtResource("1_j5g65")]
+
+[node name="Prop_Lamp_04" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_nt1lx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_y1xsg")
