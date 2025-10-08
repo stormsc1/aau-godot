@@ -1,15 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://gvn8nd2q1g1e"]
+[gd_scene load_steps=16 format=3 uid="uid://gvn8nd2q1g1e"]
 
 [ext_resource type="Environment" uid="uid://ce4uq4uvacu8d" path="res://addons/proto-assets/prototype_environment.tres" id="1_b8b3w"]
 [ext_resource type="PackedScene" uid="uid://c1verxcrelipp" path="res://samples/door/door.tscn" id="2_nj67m"]
 [ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-assets/textures/dark/texture_01.png" id="3_bq1be"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto-controller/proto_controller.tscn" id="4_wfovl"]
 [ext_resource type="Material" uid="uid://28rsnybfsutc" path="res://addons/proto-assets/materials/proto_grid_dark_01.tres" id="5_io6yr"]
+[ext_resource type="Script" uid="uid://2ae84e2yfh4b" path="res://samples/jump_pad.gd" id="5_nj67m"]
 [ext_resource type="PackedScene" uid="uid://igfjkwme4ya8" path="res://samples/moveing_platform/moving_plaform.tscn" id="6_ftx4w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n086u"]
 albedo_texture = ExtResource("3_bq1be")
 uv1_triplanar = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b8b3w"]
+radius = 2.2333984
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bqnfc"]
 size = Vector3(2, 0.1, 2)
@@ -163,7 +167,7 @@ use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 1, 2, 2.5, 3, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.234762, -0.27697372, -1.2741361)
 use_collision = true
 radius = 2.5
 height = 1.0
@@ -189,6 +193,14 @@ size = Vector3(3.7719727, 0.21569824, 4.1674805)
 
 [node name="ProtoController" parent="." instance=ExtResource("4_wfovl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Area3D_JumpPad" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2649837, 0.31048846, -1.3685167)
+script = ExtResource("5_nj67m")
+impulse_vector = Vector3(0, 20, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D_JumpPad"]
+shape = SubResource("CylinderShape3D_b8b3w")
 
 [node name="MovingPlatforms" type="Node" parent="."]
 

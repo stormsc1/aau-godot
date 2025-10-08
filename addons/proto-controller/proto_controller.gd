@@ -22,7 +22,7 @@ extends CharacterBody3D
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 5.0
+@export var base_speed : float = 10.0
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
@@ -60,6 +60,21 @@ var interact_target = null
 @onready var interact_ray : RayCast3D = $Head/Camera3D/InteractRay
 @onready var interact_prompt : Label = $CanvasLayer/InteractPrompt
 
+func add_impulse(impulse: Vector3) -> void:
+	velocity += impulse
+
+func add_radial_impulse(origin: Vector3, strength: float, radius: float, upwards_modifier: float = 0.0) -> void:
+	var dir := global_transform.origin - origin
+	var dist := dir.length()
+	if dist <= 0.001 or dist > radius:
+		return
+	dir = dir.normalized()
+	dir.y += upwards_modifier
+	dir = dir.normalized()
+	# Simple linear falloff (you can swap to quadratic if you prefer)
+	var falloff := 1.0 - (dist / radius)
+	velocity += dir * (strength * falloff)
+
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
@@ -91,46 +106,54 @@ func _process(delta) -> void:
 	if can_interact:
 		process_interact()
 
+@export var accel_ground: float = 30.0
+@export var accel_air: float = 8.0
+@export var friction: float = 20.0
+
 func _physics_process(delta: float) -> void:
-	# If freeflying, handle freefly and nothing else
+	# Freefly (noclip)
 	if can_freefly and freeflying:
-		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
-		var motion := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		motion *= freefly_speed * delta
+		var input_free: Vector2 = Input.get_vector(input_left, input_right, input_forward, input_back)
+		var motion: Vector3 = (head.global_basis * Vector3(input_free.x, 0, input_free.y)).normalized() * freefly_speed * delta
 		move_and_collide(motion)
 		return
-	
-	# Apply gravity to velocity
-	if has_gravity:
-		if not is_on_floor():
-			velocity += get_gravity() * delta
 
-	# Apply jumping
-	if can_jump:
-		if Input.is_action_just_pressed(input_jump) and is_on_floor():
-			velocity.y = jump_velocity
+	# Gravity
+	if has_gravity and not is_on_floor():
+		velocity += get_gravity() * delta
 
-	# Modify speed based on sprinting
-	if can_sprint and Input.is_action_pressed(input_sprint):
-			move_speed = sprint_speed
-	else:
-		move_speed = base_speed
+	# Jump (one-shot)
+	if can_jump and Input.is_action_just_pressed(input_jump) and is_on_floor():
+		velocity.y = jump_velocity
 
-	# Apply desired movement to velocity
-	if can_move:
-		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
-		var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if move_dir:
-			velocity.x = move_dir.x * move_speed
-			velocity.z = move_dir.z * move_speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, move_speed)
-			velocity.z = move_toward(velocity.z, 0, move_speed)
-	else:
-		velocity.x = 0
-		velocity.y = 0
-	
-	# Use velocity to actually move
+	# Sprint
+	move_speed = sprint_speed if (can_sprint and Input.is_action_pressed(input_sprint)) else base_speed
+
+	# Desired move (world space)
+	var input_dir: Vector2 = Input.get_vector(input_left, input_right, input_forward, input_back) if can_move else Vector2.ZERO
+	var wish_dir: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# Current & target horizontal velocities
+	var v2: Vector2 = Vector2(velocity.x, velocity.z)
+	var target_v2: Vector2 = Vector2(wish_dir.x, wish_dir.z) * move_speed
+
+	# Accel toward target (add deltas; don't set)
+	var accel: float = accel_ground if is_on_floor() else accel_air
+	var dv: Vector2 = target_v2 - v2
+	var max_step: float = accel * delta
+	if dv.length() > max_step:
+		dv = dv.normalized() * max_step
+	v2 += dv
+
+	# Ground friction when no input
+	if is_on_floor() and input_dir == Vector2.ZERO and not is_zero_approx(v2.length()):
+		var drop: float = min(friction * delta, v2.length())
+		v2 = v2.move_toward(Vector2.ZERO, drop)
+
+	# Write back horizontal velocity
+	velocity.x = v2.x
+	velocity.z = v2.y
+
 	move_and_slide()
 
 ## Rotate us to look around.
