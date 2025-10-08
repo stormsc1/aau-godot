@@ -1,0 +1,225 @@
+[gd_scene load_steps=17 format=3 uid="uid://tc32guge0k40"]
+
+[ext_resource type="Environment" uid="uid://ce4uq4uvacu8d" path="res://addons/proto-assets/prototype_environment.tres" id="1_qqgs3"]
+[ext_resource type="PackedScene" uid="uid://c1verxcrelipp" path="res://samples/door/door.tscn" id="2_jsse5"]
+[ext_resource type="Texture2D" uid="uid://cd3fcinti1un5" path="res://addons/proto-assets/textures/dark/texture_01.png" id="3_plxko"]
+[ext_resource type="Script" uid="uid://e2mmh1x3ed0i" path="res://samples/button.gd" id="4_6rrak"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto-controller/proto_controller.tscn" id="5_fy61e"]
+[ext_resource type="Material" uid="uid://28rsnybfsutc" path="res://addons/proto-assets/materials/proto_grid_dark_01.tres" id="6_jsse5"]
+[ext_resource type="Script" uid="uid://cudck7k8jeuox" path="res://samples/trigger_box.gd" id="6_qw7sq"]
+[ext_resource type="Script" uid="uid://br7dgwn3sgr4p" path="res://samples/animation_player.gd" id="7_plxko"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io4c2"]
+albedo_texture = ExtResource("3_plxko")
+uv1_triplanar = true
+
+[sub_resource type="GDScript" id="GDScript_io4c2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plxko"]
+size = Vector3(2, 0.1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rrak"]
+size = Vector3(2, 0.1, 2)
+
+[sub_resource type="Animation" id="Animation_n8ttf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gev5x"]
+resource_name = "new_animation"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.09, 4.05, 5.66),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 5.8921347, 0), Vector3(0, 5.8921347, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8ttf"]
+_data = {
+&"RESET": SubResource("Animation_n8ttf"),
+&"new_animation": SubResource("Animation_gev5x")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_io4c2"]
+size = Vector3(3.5, 3, 5)
+
+[node name="Node" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8498796, -0.19534059, 0.48943537, 0.52195114, -0.43999702, 0.7307323, 0.072608456, 0.8764957, 0.47590265, 0, 3.514826, 0)
+light_angular_distance = 1.0
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_qqgs3")
+
+[node name="World" type="Node" parent="."]
+
+[node name="Label3D" type="Label3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2.25, -10.95)
+text = "Lecture 5: Logical Puzzle
+---
+The door is locked. Design a puzzle for the player
+to unlock the door."
+
+[node name="Door" parent="World" instance=ExtResource("2_jsse5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -11)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(24, 1, 24)
+script = SubResource("GDScript_io4c2")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -16)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(10, 1, 8)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, -16)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(1, 4, 8)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2, -16)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(1, 4, 8)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="World"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2, -19.5)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(1, 4, 8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -11.5)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(10, 4, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -11.5)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(10, 4, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -11.5)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25, 11.5)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(22, 10.5, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, 0)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(1, 4, 24)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 5.25, 0)
+material_override = SubResource("StandardMaterial3D_io4c2")
+use_collision = true
+size = Vector3(1, 10.5, 24)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="World"]
+transform = Transform3D(0.9659258, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.9659258, -8.5, 0, -7)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 2, 2.5, 3, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, -2)
+use_collision = true
+radius = 2.5
+height = 1.0
+sides = 32
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="World"]
+transform = Transform3D(0.7071067, -0.70710677, 0, -3.0908616e-08, -3.090862e-08, 1, -0.70710677, -0.7071067, -4.371139e-08, 5.549038, 0.9999999, 6.1208363)
+use_collision = true
+inner_radius = 1.5
+outer_radius = 3.0
+sides = 32
+ring_sides = 16
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="World"]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -5.6339746, 0.5, 5.5621777)
+use_collision = true
+size = Vector3(3, 1, 2)
+
+[node name="CSGBox3D_Button" type="CSGBox3D" parent="World" groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08986616, 1.5, 10.800582)
+use_collision = true
+size = Vector3(0.4, 0.4, 0.4)
+script = ExtResource("4_6rrak")
+
+[node name="ProtoController" parent="." instance=ExtResource("5_fy61e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.001)
+
+[node name="Gameplay" type="Node" parent="."]
+
+[node name="MovingPlatform_Simple" type="Node3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8447075, 0.5340409, 8.739425)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Gameplay/MovingPlatform_Simple"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/MovingPlatform_Simple/AnimatableBody3D"]
+shape = SubResource("BoxShape3D_plxko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gameplay/MovingPlatform_Simple/AnimatableBody3D"]
+material_override = ExtResource("6_jsse5")
+mesh = SubResource("BoxMesh_6rrak")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gameplay/MovingPlatform_Simple"]
+libraries = {
+&"": SubResource("AnimationLibrary_n8ttf")
+}
+script = ExtResource("7_plxko")
+
+[node name="Trigger" type="Node3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.15, 6.2500005, 5)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Gameplay/Trigger"]
+transform = Transform3D(-7.152558e-08, 0, -1, 0, 1, 0, 1.2, 0, -5.9604645e-08, 0, 0, 0)
+use_collision = true
+size = Vector3(4.2000003, 0.05, 3.5)
+
+[node name="Area3D" type="Area3D" parent="Gameplay/Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("6_qw7sq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/Trigger/Area3D"]
+shape = SubResource("BoxShape3D_io4c2")
+
+[connection signal="pressed" from="World/CSGBox3D_Button" to="Gameplay/MovingPlatform_Simple/AnimationPlayer" method="start_playing"]
+[connection signal="character_entered" from="Gameplay/Trigger/Area3D" to="World/Door" method="open"]

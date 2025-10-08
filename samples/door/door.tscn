@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1verxcrelipp"]
+
+[ext_resource type="Script" uid="uid://djx342yexain7" path="res://samples/door/door.gd" id="1_f0bp1"]
+[ext_resource type="Material" uid="uid://28rsnybfsutc" path="res://addons/proto-assets/materials/proto_grid_dark_01.tres" id="2_xggp4"]
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_f0bp1")
+door_path = NodePath("Door")
+
+[node name="Frame" type="Node3D" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.5, 0)
+material_override = ExtResource("2_xggp4")
+use_collision = true
+size = Vector3(0.2, 3, 0.4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.9, 0)
+material_override = ExtResource("2_xggp4")
+use_collision = true
+size = Vector3(1.6, 0.2, 0.4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9000001, 1.5, 0)
+material_override = ExtResource("2_xggp4")
+use_collision = true
+size = Vector3(0.2, 3, 0.4)
+
+[node name="Door" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 1.4499999, 7.450581e-09)
+material_override = ExtResource("2_xggp4")
+use_collision = true
+size = Vector3(1.6, 2.7, 0.1)

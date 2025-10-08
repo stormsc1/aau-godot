@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bakifd13a2ule"]
+
+[ext_resource type="PackedScene" uid="uid://b3hk0jerixr2k" path="res://addons/synty/simple-house-interiors/models/Prop_Computer_Mouse.glb" id="1_tf0b3"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_fst6t"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_srqq0"]
+points = PackedVector3Array(0.22705078, 0.19287872, 0, 0.22705078, -0.19287872, 0, 0.22705078, 0.19287872, -0.008067824, -0.22705078, 0.19287872, 0, 0.22705078, -0.19287872, -0.008067824, -0.22705078, -0.19287872, 0, 0.063563555, 0.10240546, -0.06449211, -0.22705078, 0.19287872, -0.008067824, 0.063563555, -0.07971163, -0.06449211, -0.22705078, -0.19287872, -0.008067824, -0.05929634, 0.10240546, -0.06449211, -0.05929634, -0.07971163, -0.06449211)
+
+[node name="House_Prop_Computer_Mouse" instance=ExtResource("1_tf0b3")]
+
+[node name="Prop_Computer_Mouse" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_fst6t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_srqq0")

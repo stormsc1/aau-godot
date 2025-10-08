@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2pqpfd4c66c8"]
+
+[ext_resource type="PackedScene" uid="uid://p876tx0f83ne" path="res://addons/synty/simple-house-interiors/models/Prop_BunkBed_Pink.glb" id="1_6o7hd"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_b5tcm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qegdl"]
+points = PackedVector3Array(-1.1669141, 1.116749, 2.3841858e-07, 1.2801995, 2.476438, -0.0003569126, -1.0636561, 2.476923, -0.0003569126, -1.246112, 1.116749, 2.3841858e-07, 1.2796984, -2.476923, -0.0003569126, 1.279949, 2.260168, -3.647581, 1.279949, 2.476438, -3.647581, -1.0636561, 2.476923, -3.647581, -1.2799466, 2.476923, -0.0003569126, -1.2801971, -2.2606528, -0.0003569126, -1.2801971, -2.476923, -0.0003569126, 1.2794478, -2.476923, -3.647581, -1.2796959, 2.476923, -3.647581, -1.2801971, -2.2606528, -3.647581, -1.2801971, -2.476923, -3.647581)
+
+[node name="House_Prop_BunkBed_Pink" instance=ExtResource("1_6o7hd")]
+
+[node name="Prop_BunkBed_Pink" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_b5tcm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_qegdl")

@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://bsokrby0xv2d4" path="res://addons/proto-controller/proto_controller.gd" id="1_ucva2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+[ext_resource type="Material" uid="uid://dwnw1imnwwmsy" path="res://addons/proto-assets/materials/proto_grid_orange_01.tres" id="2_x0wu8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
@@ -18,7 +16,7 @@ script = ExtResource("1_ucva2")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
+material_override = ExtResource("2_x0wu8")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 

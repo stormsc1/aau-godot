@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci4lbjd3yyayc"]
+
+[ext_resource type="PackedScene" uid="uid://phytqtp14183" path="res://addons/synty/simple-house-interiors/models/Prop_Game_Pad.glb" id="1_vbb7w"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_lm1k3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vhl4a"]
+points = PackedVector3Array(0.21343994, 0.11601639, 0, 0.21343994, -0.11601639, 0, 0.21343994, 0.11601639, -0.05489568, -0.21344185, 0.11601639, 0, 0.21343994, -0.11601639, -0.05489568, -0.21344185, -0.11601639, 0, 0.1650522, 0.05828075, -0.06931252, -0.0773879, 0.0651854, -0.07043636, -0.21344185, 0.11601639, -0.05489568, 0.1650522, 0.0084945485, -0.06931252, -0.21344185, -0.11601639, -0.05489568, -0.0773879, -0.06068829, -0.07043636, -0.031047657, 0.01982817, -0.07043636, -0.1125296, 0.0651854, -0.07043636, -0.15886985, 0.01982817, -0.07043636, -0.031047657, -0.01533106, -0.07043636, -0.15886985, -0.01533106, -0.07043636, -0.1125296, -0.06068829, -0.07043636)
+
+[node name="House_Prop_Game_Pad" instance=ExtResource("1_vbb7w")]
+
+[node name="Prop_Game_Pad" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_lm1k3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_vhl4a")

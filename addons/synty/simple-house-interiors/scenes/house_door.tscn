@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcius67xk7y1"]
+
+[ext_resource type="PackedScene" uid="uid://cerue12vnifhb" path="res://addons/synty/simple-house-interiors/models/Door.glb" id="1_y757g"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_hpo77"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lvrcn"]
+points = PackedVector3Array(1.9965174, 0.15336443, 0, 0, 0.15336443, 0, 1.996322, 0, 0, 1.9965174, 0.15336443, -3.7519445, 0, 0, 0, 0, 0.15336443, -3.748272, 1.996322, 0, -3.7519445, 0, 0, -3.748272)
+
+[node name="House_Door" instance=ExtResource("1_y757g")]
+
+[node name="Door" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_hpo77")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_lvrcn")

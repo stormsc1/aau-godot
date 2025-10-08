@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpsioh1jcdbxm"]
+
+[ext_resource type="PackedScene" uid="uid://bt52xys4l2dv3" path="res://addons/synty/simple-house-interiors/models/Prop_Big_Clock.glb" id="1_w3vq8"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_47llt"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d0m4f"]
+points = PackedVector3Array(0.5182152, 0.43153, 0, 0.5182152, -0.43152618, 0, 0.5182152, 0.43153, -0.25690627, -0.5182152, 0.43153, 0, -0.5182152, -0.43152618, 0, 0.5182152, -0.43152618, -0.25690627, -0.5182152, 0.43153, -0.25690627, 0.5086788, 0.41936475, -3.0808725, -0.5182152, -0.43152618, -0.25690627, 0.5086788, -0.41944543, -3.0808725, -0.5087802, 0.41936475, -3.0808725, 0.27432537, 0.4001031, -3.4085114, -0.5087802, -0.41944543, -3.0808725, 0.27432537, 0.2693268, -3.4085114, -0.2744268, 0.4001031, -3.4085114, -0.2744268, 0.2693268, -3.4085114)
+
+[node name="House_Prop_Big_Clock" instance=ExtResource("1_w3vq8")]
+
+[node name="Prop_Big_Clock" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_47llt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_d0m4f")

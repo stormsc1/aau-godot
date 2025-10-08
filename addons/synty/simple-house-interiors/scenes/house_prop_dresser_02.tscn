@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cju1f6r7grwd"]
+
+[ext_resource type="PackedScene" uid="uid://b3x2lyl38et7b" path="res://addons/synty/simple-house-interiors/models/Prop_Dresser_02.glb" id="1_yovtv"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_238t4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v8l61"]
+points = PackedVector3Array(1.0597858, 0.42920107, 0, 1.0597858, -0.42379892, 0, 1.0597858, 0.42920107, -0.20116615, 0.68653643, 0.4526863, -0.36378717, -1.0597897, 0.42920107, 0, -1.0597897, -0.42379892, 0, 0.36121392, -0.45269012, -0.83730125, 1.0597858, -0.42379892, -0.20116615, 1.0523167, 0.41971838, -1.3960646, 0.68653643, 0.4526863, -1.179987, -0.37657094, 0.4526863, -0.36378717, -1.0597897, 0.42920107, -0.20116615, -1.0597897, -0.42379892, -0.20116615, -0.39296156, -0.45269012, -0.83730125, 0.36121392, -0.45269012, -2.6368234, 1.0523167, -0.4144048, -1.3960646, 0.5159911, -0.29245907, -2.8742838, -1.052528, 0.41971838, -1.3960646, -0.37657094, 0.4526863, -1.179987, -1.052528, -0.4144048, -1.3960646, -0.39296156, -0.45269012, -2.6368234, 0.5159911, -0.3725746, -2.8742838, -0.54981345, -0.29245907, -2.8742838, -0.54981345, -0.3725746, -2.8742838)
+
+[node name="House_Prop_Dresser_02" instance=ExtResource("1_yovtv")]
+
+[node name="Prop_Dresser_02" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_238t4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_v8l61")

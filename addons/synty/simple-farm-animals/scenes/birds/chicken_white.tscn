@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvu4vide6loh3"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwe6k25p43jbk" path="res://addons/synty/simple-farm-animals/models/animal_birds/SA_Animals_Chicken_White.res" id="1_1atcq"]
+[ext_resource type="Material" uid="uid://ccmp56v8t83gr" path="res://addons/synty/simple-farm-animals/materials/animals_mat.tres" id="2_7ihmy"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1atcq"]
+points = PackedVector3Array(-0.025051927, 0, -0.017133132, -0.031135092, 0.053009655, -0.03032868, -0.023008902, 0.07362711, -0.05743045, -0.002387356, 0.10031034, -0.08539656, 0.025044277, 0, -0.017133132, -0.03908529, 0, 0.0135220215, -0.031135092, 0.07955327, -0.03032868, -0.023008902, 0.101117045, -0.035822023, 0.0023797043, 0.10031034, -0.08539656, -0.002387356, 0.109664984, -0.07790564, 0.02300125, 0.07362711, -0.05743045, 0.031127438, 0.053009655, -0.03032868, 0.03908529, 0, 0.0135220215, -0.020812841, 0, 0.023701996, 0, 0.12567492, 0.11082718, -0.015701452, 0.14775065, 0.096652046, -0.03908529, 0.006841457, 0.0135220215, -0.031135092, 0.07955327, 0.016633637, -0.023865901, 0.11236434, 0.026736774, -0.015701452, 0.14775065, 0.06125264, 0.0023797043, 0.109664984, -0.07790564, 0.02300125, 0.101117045, -0.035822023, -0.0052720755, 0.158486, 0.060061768, 0.031127438, 0.07955327, -0.03032868, 0.03908529, 0.006841457, 0.0135220215, 0.015693802, 0.14775065, 0.096652046, 0.020805191, 0, 0.023701996, -0.0052720755, 0.158486, 0.081996724, 0.005264424, 0.158486, 0.060061768, 0.015693802, 0.14775065, 0.06125264, 0.02385825, 0.11236434, 0.026736774, 0.031127438, 0.07955327, 0.016633637, 0.005264424, 0.158486, 0.081996724)
+
+[node name="Chicken_White" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1atcq")
+surface_material_override/0 = ExtResource("2_7ihmy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1atcq")

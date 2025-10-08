@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://crt111s8gl7gw"]
+
+[ext_resource type="PackedScene" uid="uid://cqgqowydfrqhe" path="res://addons/synty/simple-house-interiors/models/Prop_PowerPoint.glb" id="1_2pcro"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_ecwnq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_25b4m"]
+points = PackedVector3Array(0.08183704, 0.012976408, 0.11988129, -0.055897713, 0.012976408, 0.11988129, 0.08183704, -0.012976408, 0.11988129, 0.08183704, 0.012976408, -0.11988127, -0.055897713, -0.012976408, 0.11988129, -0.055897713, 0.012976408, -0.11988127, 0.08183704, -0.012976408, -0.11988127, -0.055897713, -0.012976408, -0.11988127)
+
+[node name="House_Prop_PowerPoint" instance=ExtResource("1_2pcro")]
+
+[node name="Prop_PowerPoint" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ecwnq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_25b4m")

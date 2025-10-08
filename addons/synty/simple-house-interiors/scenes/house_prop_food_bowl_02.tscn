@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm0hbp3jug11y"]
+
+[ext_resource type="PackedScene" uid="uid://y2dnjiwug4d5" path="res://addons/synty/simple-house-interiors/models/Prop_Food_Bowl_02.glb" id="1_nfkox"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_aqcoq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_blref"]
+points = PackedVector3Array(-0.1955986, -0.1955986, -0.14453387, -0.013287529, -0.11805571, -0.22949302, 0.1955986, -0.1955986, -0.14453387, -0.11974096, -0.11974059, -2.245605e-05, -0.1955986, 0.19560051, -0.14453387, -0.09906296, 0.0633755, -0.22949302, 0.08129519, -0.087038554, -0.22949302, 0.11970267, -0.11974059, -2.245605e-05, 0.1955986, 0.19556221, -0.14453387, -0.11974096, 0.11970419, -2.245605e-05, 0.11970267, 0.11970419, -2.245605e-05, -0.026728228, 0.13176644, -0.22949302, 0.04166235, 0.059431344, -0.22949302)
+
+[node name="House_Prop_Food_Bowl_02" instance=ExtResource("1_nfkox")]
+
+[node name="Prop_Food_Bowl_02" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_aqcoq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_blref")

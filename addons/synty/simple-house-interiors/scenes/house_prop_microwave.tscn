@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fyx5uea2hjl2"]
+
+[ext_resource type="PackedScene" uid="uid://mygxegt4m8m" path="res://addons/synty/simple-house-interiors/models/Prop_Microwave.glb" id="1_65hte"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_ljj6x"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sk0xo"]
+points = PackedVector3Array(0.39386833, 0.36443663, -0.021764725, 0.41567755, 0.32676584, 0, 0.39386833, 0.36443663, -0.49060836, -0.3939497, 0.36443663, -0.021764725, 0.41567755, -0.36443615, 0, 0.41567755, 0.32676584, -0.5123229, -0.41567755, 0.32676584, 0, -0.3939497, 0.36443663, -0.49060836, 0.41567755, -0.36443615, -0.5123229, -0.41567755, -0.36443615, 0, -0.41567755, 0.32676584, -0.5123229, -0.41567755, -0.36443615, -0.5123229)
+
+[node name="House_Prop_Microwave" instance=ExtResource("1_65hte")]
+
+[node name="Prop_Microwave" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ljj6x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_sk0xo")

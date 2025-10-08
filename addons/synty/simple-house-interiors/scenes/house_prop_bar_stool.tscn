@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vddhaslot3wx"]
+
+[ext_resource type="PackedScene" uid="uid://i7b05x3kbuuj" path="res://addons/synty/simple-house-interiors/models/Prop_Bar_Stool.glb" id="1_3u8r2"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_7cvdj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1my0"]
+points = PackedVector3Array(0.34650135, 0.34649658, -1.1832515, 0.29013038, 0.29012644, 0, 0.34650135, -0.34649658, -1.1832515, 0.34650135, 0.34649658, -1.3017025, -0.3465023, 0.34649658, -1.1832515, -0.29019916, 0.29012644, 0, 0.29013038, -0.29019427, 0, -0.3465023, -0.34649658, -1.1832515, 0.34650135, -0.34649658, -1.6070323, 0.34650135, -0.2395222, -1.6070323, -0.3465023, 0.34649658, -1.3017025, -0.29019916, -0.29019427, 0, -0.3465023, -0.34649658, -1.6070323, -0.3465023, -0.2395222, -1.6070323)
+
+[node name="House_Prop_Bar_Stool" instance=ExtResource("1_3u8r2")]
+
+[node name="Prop_Bar_Stool" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_7cvdj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_h1my0")

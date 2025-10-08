@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1emkueigybbp"]
+
+[ext_resource type="PackedScene" uid="uid://cy4af3gnyw1y6" path="res://addons/synty/simple-house-interiors/models/Prop_Small_Table_01.glb" id="1_psqbh"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_faqxk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_srt77"]
+points = PackedVector3Array(-1.5162315, -0.547245, -1.1266534, -1.5162315, -0.547245, -0.97556543, -1.5162315, 0.547245, -1.1266534, 1.5162294, -0.547245, -1.1266534, -1.4334147, -0.49914145, 0, -1.5162315, 0.547245, -0.97556543, 1.5162294, -0.547245, -0.97556543, 1.5162294, 0.547245, -1.1266534, -1.4334147, 0.4990343, 0, 1.4331157, -0.49914145, 0, 1.5162294, 0.547245, -0.97556543, 1.4331157, 0.4990343, 0)
+
+[node name="House_Prop_Small_Table_01" instance=ExtResource("1_psqbh")]
+
+[node name="Prop_Small_Table_01" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_faqxk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_srt77")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4oaasm6et0bg"]
+
+[ext_resource type="PackedScene" uid="uid://cykxfc2eqhd0o" path="res://addons/synty/simple-house-interiors/models/Prop_RubbishBin_02.glb" id="1_gpwbp"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_finft"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_15kk0"]
+points = PackedVector3Array(-0.2428106, -0.24281216, -0.67627484, -0.2428106, 0.24279621, -0.67627484, 0.24276248, -0.24281216, -0.67627484, -0.2428106, -0.24281216, 0, 0.24276248, 0.24279621, -0.67627484, -0.2428106, 0.24279621, 0, -0.079716995, 0.31198263, -0.046867907, 0.24281004, -0.24281216, -0.56698257, 0.24281004, -0.24281216, 0, 0.07966888, 0.31198263, -0.046867907, 0.24281004, 0.24279621, -0.56698257, -0.079716995, 0.31198263, 0, 0.24281004, 0.24279621, 0, 0.07966888, 0.31198263, 0)
+
+[node name="House_Prop_RubbishBin_02" instance=ExtResource("1_gpwbp")]
+
+[node name="Prop_RubbishBin_02" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_finft")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_15kk0")

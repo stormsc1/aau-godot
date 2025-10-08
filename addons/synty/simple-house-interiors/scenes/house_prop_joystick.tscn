@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4y22hy2xnlv"]
+
+[ext_resource type="PackedScene" uid="uid://ct6rdoc5x5uho" path="res://addons/synty/simple-house-interiors/models/Prop_Joystick.glb" id="1_nth1y"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_t4syb"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_54h5x"]
+points = PackedVector3Array(0.14454651, 0.14454651, -0.091465205, -0.14454651, 0.14454651, -0.091465205, 0.12909576, 0.12909576, 0, 0.14454651, -0.14454651, -0.091465205, 0.032684267, 0.032684267, -0.3853257, -0.14454651, -0.14454651, -0.091465205, -0.12912406, 0.12909576, 0, -0.03274086, 0.032684267, -0.3853257, 0.12909576, -0.12912406, 0, 0.032684267, -0.032712564, -0.3853257, 0.018903106, 0.018903106, -0.40172338, -0.12912406, -0.12912406, 0, -0.03274086, -0.032712564, -0.3853257, -0.018931404, 0.018903106, -0.40172338, 0.018903106, -0.018931404, -0.40172338, -0.018931404, -0.018931404, -0.40172338)
+
+[node name="House_Prop_Joystick" instance=ExtResource("1_nth1y")]
+
+[node name="Prop_Joystick" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_t4syb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_54h5x")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://brk01ud4egdc8"]
+
+[ext_resource type="PackedScene" uid="uid://bid4y4tor82j" path="res://addons/synty/simple-house-interiors/models/Prop_ToiletBrush_01.glb" id="1_dei03"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_fn6ad"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_md8bv"]
+points = PackedVector3Array(0.1883651, -3.1873584e-05, 0, 0.1406391, 0.115122646, 0, 0.1406391, -0.11515453, 0, 0.1406391, -0.11515453, -0.5877037, 0.18833321, -3.1873584e-05, -0.5877037, 0.1406391, 0.115122646, -0.5877037, 0.02551639, 0.16284865, 0, 0.02551639, -0.16284865, 0, 0.02551639, -0.16284865, -0.5877037, 0.06444323, -0.038161673, -0.8436112, 0.06444323, 0.038129807, -0.8436112, 0.02551639, 0.16284865, -0.5877037, -0.08963817, 0.115122646, 0, -0.08963817, -0.11515453, 0, -0.08963817, -0.11515453, -0.5877037, -0.013442323, -0.038161673, -0.8436112, -0.013442323, 0.038129807, -0.8436112, -0.08963817, 0.115122646, -0.5877037, -0.13733232, -3.1873584e-05, 0, -0.13733232, -3.1873584e-05, -0.5877037)
+
+[node name="House_Prop_ToiletBrush_01" instance=ExtResource("1_dei03")]
+
+[node name="Prop_ToiletBrush_01" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_fn6ad")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_md8bv")

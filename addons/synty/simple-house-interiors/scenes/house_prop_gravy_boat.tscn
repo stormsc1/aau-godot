@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw83nvv1axil0"]
+
+[ext_resource type="PackedScene" uid="uid://qrpsn2gnlgpy" path="res://addons/synty/simple-house-interiors/models/Prop_Gravy_Boat.glb" id="1_qer3t"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_5s6nr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_if14w"]
+points = PackedVector3Array(0.17679241, 0.1358242, -0.13865227, 0.10398948, 0.08312212, 0, 0.2624399, 0.013535157, -0.04486902, 0.26228577, 0.013535157, -0.223383, -0.14745547, 0.1358242, -0.13865227, -0.07465255, 0.08312212, 0, 0.10398948, -0.08314737, 0, 0.2624399, -0.013560414, -0.04486902, 0.26228577, -0.013560414, -0.223383, 0.1436021, 0.013535157, -0.223383, -0.2624399, 0.04525745, -0.18977496, -0.16101933, 0.027707815, 0, -0.07465255, -0.08314737, 0, 0.17679241, -0.13582286, -0.13865227, 0.1436021, -0.013560414, -0.223383, -0.2624399, -0.045282707, -0.18977496, -0.16101933, -0.027733073, 0, -0.14745547, -0.13582286, -0.13865227)
+
+[node name="House_Prop_Gravy_Boat" instance=ExtResource("1_qer3t")]
+
+[node name="Prop_Gravy_Boat" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_5s6nr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_if14w")

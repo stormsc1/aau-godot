@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bssiv31ul8erw"]
+
+[ext_resource type="PackedScene" uid="uid://d3j74tadj8y58" path="res://addons/synty/simple-house-interiors/models/Prop_TowelRail.glb" id="1_wlp2n"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_vaimj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p6v8g"]
+points = PackedVector3Array(0.5497825, 0.17046738, 0.037646256, 0.5764141, 0.02471243, 0.05357957, 0.5497825, 0.17046738, -0.037656747, -0.54763854, 0.17046738, 0.037646256, 0.5764141, 0, 0.05357957, 0.5764141, 0.02471243, -0.05357957, -0.5764141, 0.02471243, 0.05357957, -0.54763854, 0.17046738, -0.037656747, 0.5764141, 0, -0.05357957, -0.5764141, 0, 0.05357957, -0.5764141, 0.02471243, -0.05357957, -0.5764141, 0, -0.05357957)
+
+[node name="House_Prop_TowelRail" instance=ExtResource("1_wlp2n")]
+
+[node name="Prop_TowelRail" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_vaimj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_p6v8g")

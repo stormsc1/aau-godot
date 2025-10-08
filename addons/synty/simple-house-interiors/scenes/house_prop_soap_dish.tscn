@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq5niktf0ndg5"]
+
+[ext_resource type="PackedScene" uid="uid://bhgr3wa4hwhu5" path="res://addons/synty/simple-house-interiors/models/Prop_SoapDish.glb" id="1_cbiff"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_70h5o"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8xem8"]
+points = PackedVector3Array(0.10304691, 0.08305931, 0, 0.10304691, -0.08305931, 0, 0.10304691, 0.08305931, -0.038680993, -0.103046894, 0.08305931, 0, 0.10304691, -0.08305931, -0.038680993, -0.103046894, -0.08305931, 0, 0.066068634, 0.049302235, -0.05795908, -0.103046894, 0.08305931, -0.038680993, 0.066068634, -0.0493185, -0.05795908, -0.103046894, -0.08305931, -0.038680993, -0.06608881, 0.049302235, -0.05795908, -0.06608881, -0.0493185, -0.05795908)
+
+[node name="House_Prop_SoapDish" instance=ExtResource("1_cbiff")]
+
+[node name="Prop_SoapDish" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_70h5o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_8xem8")

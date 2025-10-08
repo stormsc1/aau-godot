@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh6wa8ta1alm0"]
+
+[ext_resource type="PackedScene" uid="uid://f7johjhtfuay" path="res://addons/synty/simple-house-interiors/models/Floor_Carpet_Grey.glb" id="1_yvfsu"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_ea7cy"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bx4wc"]
+points = PackedVector3Array(2.5, 2.5, 0, 2.5, -2.5, 0, -2.5, 2.5, 0, -2.5, -2.5, 0)
+
+[node name="House_Floor_Carpet_Grey" instance=ExtResource("1_yvfsu")]
+
+[node name="Floor_Carpet_Grey" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ea7cy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_bx4wc")

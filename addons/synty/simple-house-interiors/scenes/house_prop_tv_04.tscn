@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0dl0ew2p7ng0"]
+
+[ext_resource type="PackedScene" uid="uid://dmqiydnb8fy4w" path="res://addons/synty/simple-house-interiors/models/Prop_Tv_04.glb" id="1_11a82"]
+[ext_resource type="Material" uid="uid://df16jwq4032a5" path="res://addons/synty/simple-house-interiors/materials/house_mat.tres" id="2_00ykd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qvm13"]
+points = PackedVector3Array(-1.2494373, -0.013203517, -1.7127175, -1.2494373, 0.103565514, -1.7127175, 1.2494383, -0.013203517, -1.7127175, -1.1325166, -0.11983186, -1.6339217, -1.2494373, -0.013203517, -0.21241319, -1.2494373, 0.103565514, -0.21241319, -0.73772556, 0.22042084, -0.10377562, 1.2494383, 0.103565514, -1.7127175, 1.2494383, -0.013203517, -0.21241319, 1.1322727, -0.11983186, -1.6339217, -0.73772556, -0.22041893, -0.10377562, -1.1325166, -0.11983186, -0.29120886, -0.73772556, -0.22041893, 0, -0.73772556, 0.22042084, 0, 0.73748183, 0.22042084, -0.10377562, 1.2494383, 0.103565514, -0.21241319, 0.73748183, -0.22041893, 0, 1.1322727, -0.11983186, -0.29120886, 0.73748183, -0.22041893, -0.10377562, 0.73748183, 0.22042084, 0)
+
+[node name="House_Prop_Tv_04" instance=ExtResource("1_11a82")]
+
+[node name="Prop_Tv_04" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_00ykd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_qvm13")
